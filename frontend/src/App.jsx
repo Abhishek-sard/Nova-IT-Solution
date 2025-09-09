@@ -1,12 +1,23 @@
 import React from "react";
+import Navbar from "./Components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
+
+// Home page
+function Home() {
+  
+}
+
 function App() {
-
   return (
-    <h1 class="text-3xl font-bold underline text-amber-400">
-      Hello world!
-    </h1>
-
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
 
-export default App
+export default App;
