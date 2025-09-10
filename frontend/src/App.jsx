@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Hero from "./Components/HomePage/Hero";
 import Cart from "./Components/HomePage/Cart";
 import ChooseUs from "./Components/HomePage/ChooseUs";
+import TrustOrganization from "./Components/HomePage/TrustOrganization";
 
 // Home page
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
   <Hero/>
   <Cart/>
   <ChooseUs/>
+  <TrustOrganization/>
   </>
   )
 }
