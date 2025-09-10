@@ -6,6 +6,8 @@ import Hero from "./Components/HomePage/Hero";
 import Cart from "./Components/HomePage/Cart";
 import ChooseUs from "./Components/HomePage/ChooseUs";
 import TrustOrganization from "./Components/HomePage/TrustOrganization";
+import OurServices from "./Components/HomePage/OurServices";
+import TestMonial from "./Components/HomePage/TestMonial";
 
 // Home page
 function Home() {
@@ -15,6 +17,8 @@ function Home() {
   <Cart/>
   <ChooseUs/>
   <TrustOrganization/>
+  <OurServices/>
+  <TestMonial/>
   </>
   )
 }
