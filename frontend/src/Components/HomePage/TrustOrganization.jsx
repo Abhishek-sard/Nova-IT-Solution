@@ -14,9 +14,10 @@ const TrustOrganization = () => {
     <section className="flex justify-center px-4">
       <div className="bg-white rounded-2xl p-8 w-full max-w-6xl shadow-2xl shadow-gray-400/50 transition duration-300 cursor-pointer">
         {/* Left-aligned Text */}
-        <h3 className="text-3xl font-bold text-black text-left mb-1">
+        <h3 className="text-2xl sm:text-3xl font-bold text-black text-left mb-1">
           Our Trusted Organizations:
         </h3>
+
 
         {/* Centered Images */}
         <div className="flex flex-wrap items-center justify-center gap-8">
@@ -32,7 +33,7 @@ const TrustOrganization = () => {
       </div>
       <hr />
     </section>
-    
+
   );
 };
 
