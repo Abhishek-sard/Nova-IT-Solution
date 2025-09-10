@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi"; // Hamburger icons
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const hero = document.getElementById("hero");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setScrolled(!entry.isIntersecting); // navbar becomes colored when hero is out of view
+      },
+      { threshold: 0.1 } // trigger when 10% of hero is visible
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
   }, []);
 
   return (

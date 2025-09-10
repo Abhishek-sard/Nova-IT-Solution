@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        nova: '#2c6332',
+        nova: '#2c6e32',
         novaDark: '#205427',
         novaLight: '#3a8a40',
       },
