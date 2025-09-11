@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom"; 
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,9 +12,9 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setScrolled(!entry.isIntersecting); // navbar becomes colored when hero is out of view
+        setScrolled(!entry.isIntersecting);
       },
-      { threshold: 0.1 } // trigger when 10% of hero is visible
+      { threshold: 0.1 }
     );
 
     observer.observe(hero);
@@ -42,7 +43,14 @@ const Navbar = () => {
         <div className="hidden md:flex flex-1 justify-center">
           <ul className="flex items-center gap-8 text-base font-medium">
             <li className="hover:text-gray-300 cursor-pointer">Home</li>
-            <li className="hover:text-gray-300 cursor-pointer">All Courses</li>
+            <li>
+              <Link
+                to="/all-courses"
+                className="hover:text-gray-300 cursor-pointer"
+              >
+                All Courses
+              </Link>
+            </li>
             <li className="hover:text-gray-300 cursor-pointer">About Us</li>
             <li className="hover:text-gray-300 cursor-pointer">Blogs</li>
             <li className="hover:text-gray-300 cursor-pointer">Contact</li>
@@ -72,7 +80,14 @@ const Navbar = () => {
         <div className="md:hidden bg-[#2c6e32] text-white px-6 py-4">
           <ul className="flex flex-col gap-4">
             <li className="hover:text-gray-300 cursor-pointer">Home</li>
-            <li className="hover:text-gray-300 cursor-pointer">All Courses</li>
+            <li>
+              <Link
+                to="/all-courses"
+                className="hover:text-gray-300 cursor-pointer"
+              >
+                All Courses
+              </Link>
+            </li>
             <li className="hover:text-gray-300 cursor-pointer">About Us</li>
             <li className="hover:text-gray-300 cursor-pointer">Blogs</li>
             <li className="hover:text-gray-300 cursor-pointer">Contact</li>

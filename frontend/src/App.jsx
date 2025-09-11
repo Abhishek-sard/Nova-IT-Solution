@@ -12,36 +12,36 @@ import AllCourses from "./Components/AllCourses/AllCourses";
 
 // Home page
 function Home() {
-  return(
-  <>
-  <Hero/>
-  <Cart/>
-  <ChooseUs/>
-  <TrustOrganization/>
-  <OurServices/>
-  <TestMonial/>
-  </>
-  )
-}
-
-//all courses
-function Courses(){
-  return(
+  return (
     <>
-    <AllCourses/>
+      <Hero />
+      <Cart />
+      <ChooseUs />
+      <TrustOrganization />
+      <OurServices />
+      <TestMonial />
     </>
-  )
+  );
 }
 
+// All Courses page
+function Courses() {
+  return (
+    <>
+      <AllCourses />
+    </>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/all-courses" element={<Courses />} /> {/* ✅ fixed */}
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
