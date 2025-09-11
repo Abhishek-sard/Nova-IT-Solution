@@ -9,6 +9,9 @@ import TrustOrganization from "./Components/HomePage/TrustOrganization";
 import OurServices from "./Components/HomePage/OurServices";
 import TestMonial from "./Components/HomePage/TestMonial";
 import AllCourses from "./Components/AllCourses/AllCourses";
+import Story from "./Components/AboutUs/Story";
+import Background from "./Components/AboutUs/Background";
+import Team from "./Components/AboutUs/Team";
 
 // Home page
 function Home() {
@@ -33,13 +36,25 @@ function Courses() {
   );
 }
 
+//About Us
+function AboutUs(){
+  return(
+    <>
+    <Story/>
+    <Background/>
+    <Team/>
+    </>
+  )
+}
+
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all-courses" element={<Courses />} /> {/* ✅ fixed */}
+        <Route path="/all-courses" element={<Courses />} /> 
+        <Route path="/about" element={<AboutUs/>}/>
       </Routes>
       <Footer />
     </Router>
