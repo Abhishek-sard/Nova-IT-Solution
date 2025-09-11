@@ -13,6 +13,7 @@ import Story from "./Components/AboutUs/Story";
 import Background from "./Components/AboutUs/Background";
 import Team from "./Components/AboutUs/Team";
 import Blog from "./Components/BlogsPage/Blog";
+import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 
 // Home page
 function Home() {
@@ -53,6 +54,16 @@ function BlogsPage() {
   )
 }
 
+
+//Contact page
+function ContactPage(){
+  return(
+    <>
+    <WhatsAppForm/>
+    
+    </>
+  )
+}
 function App() {
   return (
     <Router>
@@ -62,6 +73,7 @@ function App() {
         <Route path="/all-courses" element={<Courses />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/contact" element={<ContactPage/>}/>
       </Routes>
       <Footer />
     </Router>
