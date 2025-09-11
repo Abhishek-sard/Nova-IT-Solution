@@ -8,6 +8,7 @@ import ChooseUs from "./Components/HomePage/ChooseUs";
 import TrustOrganization from "./Components/HomePage/TrustOrganization";
 import OurServices from "./Components/HomePage/OurServices";
 import TestMonial from "./Components/HomePage/TestMonial";
+import AllCourses from "./Components/AllCourses/AllCourses";
 
 // Home page
 function Home() {
@@ -20,6 +21,15 @@ function Home() {
   <OurServices/>
   <TestMonial/>
   </>
+  )
+}
+
+//all courses
+function Courses(){
+  return(
+    <>
+    <AllCourses/>
+    </>
   )
 }
 

@@ -47,7 +47,7 @@ const Footer = () => {
           <p className="text-sm">📍  Sunsari, Nepal</p>
           <p className='text-sm'>Gudri Line, Inurawa</p>
           <p className="text-sm">📞 +977 9764453517</p>
-          <p className="text-sm">✉️ nova@gmail.com</p>
+          <p className="text-sm">✉️ nova@gmail.</p>
 
           {/* Social Icons */}
           <div className="flex justify-center sm:justify-start gap-4 mt-4">
@@ -60,7 +60,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom Line */}
-
+      <div className="border-t border-gray-500 mt-8 pt-4 text-center text-xs sm:text-sm text-gray-300">
+        © {new Date().getFullYear()} Your Company. All rights reserved.
+      </div>
     </footer>
   );
 };
