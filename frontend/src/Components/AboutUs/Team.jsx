@@ -1,5 +1,4 @@
 import React from "react";
-import MyPhoto from '../../assets/me.png';
 
 // Team data
 const teamMembers = [
@@ -19,7 +18,7 @@ const teamMembers = [
     id: 3,
     name: "Abhishek Sardar",
     position: "Lead Instructor, Project Manager",
-    img: MyPhoto, // imported image
+    img: "", // imported image
   },
   {
     id: 4,
