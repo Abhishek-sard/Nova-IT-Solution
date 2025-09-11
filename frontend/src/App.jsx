@@ -12,6 +12,7 @@ import AllCourses from "./Components/AllCourses/AllCourses";
 import Story from "./Components/AboutUs/Story";
 import Background from "./Components/AboutUs/Background";
 import Team from "./Components/AboutUs/Team";
+import Blog from "./Components/BlogsPage/Blog";
 
 // Home page
 function Home() {
@@ -29,20 +30,25 @@ function Home() {
 
 // All Courses page
 function Courses() {
+  return <AllCourses />;
+}
+
+// About Us page
+function AboutUs() {
   return (
     <>
-      <AllCourses />
+      <Story />
+      <Background />
+      <Team />
     </>
   );
 }
 
-//About Us
-function AboutUs(){
-  return(
+// Blog page
+function BlogsPage() {
+  return (
     <>
-    <Story/>
-    <Background/>
-    <Team/>
+    <Blog/>
     </>
   )
 }
@@ -53,8 +59,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all-courses" element={<Courses />} /> 
-        <Route path="/about" element={<AboutUs/>}/>
+        <Route path="/all-courses" element={<Courses />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/blogs" element={<BlogsPage />} />
       </Routes>
       <Footer />
     </Router>
