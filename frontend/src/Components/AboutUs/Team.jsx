@@ -1,4 +1,9 @@
 import React from "react";
+import TeamMember1 from "../../assets/Team1.jpg";
+import TeamMember2 from "../../assets/Team2.jpg";
+import TeamMember3 from "../../assets/Team3.jpg";
+import TeamMember4 from "../../assets/Team4.jpg";
+import TeamMember5 from '../../assets/me.jpg';
 
 // Team data
 const teamMembers = [
@@ -6,31 +11,31 @@ const teamMembers = [
     id: 1,
     name: "Aayush Sapkota",
     position: "Founder & CEO",
-    img: "/team/abhishek.jpg", // keep in public/team folder
+    img: TeamMember2, 
   },
   {
     id: 2,
-    name: "Sagun Subhedi",
+    name: "Sagun Subedi",
     position: "Managing Director",
-    img: "/team/sita.jpg",
+    img: TeamMember4,
   },
   {
     id: 3,
     name: "Abhishek Sardar",
     position: "Lead Instructor, Project Manager",
-    img: "", // imported image
+    img: TeamMember5, 
   },
   {
     id: 4,
     name: "Prabhat Rai",
     position: "COO - Graphic Designer",
-    img: "/team/anita.jpg",
+    img:TeamMember1,
   },
   {
     id: 5,
     name: "Bigyan Rijal",
     position: "Backend Developer",
-    img: "", // imported image
+    img: TeamMember3, 
   },
 ];
 
