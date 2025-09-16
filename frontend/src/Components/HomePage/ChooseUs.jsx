@@ -15,7 +15,7 @@ const ChooseUs = () => {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center md:text-left">
                     Why choose Nova?
                 </h2>
-                <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-12 text-center md:text-left">
+                <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-12  md:text-center">
                     Nova is an innovative IT company dedicated to delivering practical software solutions.
                     We combine expertise with hands-on development, helping clients achieve their goals efficiently
                     while building reliable and scalable technology products.
