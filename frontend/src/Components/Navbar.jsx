@@ -24,10 +24,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${scrolled ? "bg-green-900" : "bg-[#2c6e32]"
-        }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled ? "bg-green-900" : "bg-[#2c6e32]"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 text-white">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 text-white">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -45,31 +46,18 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-1 justify-center">
           <ul className="flex items-center gap-8 text-base font-medium">
-            <li>
-              <Link to="/" className="hover:text-gray-300">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/all-courses" className="hover:text-gray-300">
-                Our Courses
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="hover:text-gray-300">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/blogs" className="hover:text-gray-300">
-                Blogs
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-gray-300">
-                Contact
-              </Link>
-            </li>
+            {["Home", "Our Courses", "About Us", "Blogs", "Contact"].map(
+              (item) => (
+                <li key={item}>
+                  <Link
+                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "-")}`}
+                    className="hover:text-gray-300 transition-colors duration-300"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
@@ -77,13 +65,13 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4">
           <Link
             to="/works"
-            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
+            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 transition"
           >
             Gallery
           </Link>
           <Link
             to="/contact"
-            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
+            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 transition"
           >
             Contact
           </Link>
@@ -98,53 +86,43 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-[#2c6e32] text-white px-6 py-4">
-          <ul className="flex flex-col gap-4">
-            <li>
-              <Link to="/" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/all-courses" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                Our Courses
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/blogs" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                Blogs
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                Contact
-              </Link>
-            </li>
-          </ul>
-          <div className="flex flex-col gap-2 mt-4">
-            <Link
-              to="/works"
-              className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link
-              to="/contact"
-              className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
-          </div>
+      <div
+        className={`md:hidden bg-[#2c6e32] text-white px-4 sm:px-6 lg:px-8 overflow-hidden transition-all duration-500 ${
+          isOpen ? "max-h-screen py-4" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col gap-4">
+          {["Home", "Our Courses", "About Us", "Blogs", "Contact"].map(
+            (item) => (
+              <li key={item}>
+                <Link
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s/g, "-")}`}
+                  className="hover:text-gray-300 transition-colors duration-300 block py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
+        <div className="flex flex-col gap-2 mt-4">
+          <Link
+            to="/works"
+            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Gallery
+          </Link>
+          <Link
+            to="/contact"
+            className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

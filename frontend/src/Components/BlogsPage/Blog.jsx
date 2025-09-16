@@ -46,7 +46,7 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div className="min-h-screen bg-gray-100 px-6 py-12">
+    <div className="min-h-screen mt-12 bg-gray-100 px-6 py-12">
       <h1 className="text-3xl md:text-4xl font-bold text-green-800 text-center mb-12">
         Our Blog
       </h1>

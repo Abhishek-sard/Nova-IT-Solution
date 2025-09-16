@@ -36,9 +36,14 @@ function AllCourses() {
             className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center hover:shadow-lg transition"
           >
             {/* Small Logo */}
-            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mb-3">
-              NOVA
+            <div className="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center mb-3 overflow-hidden">
+              <img
+                src="/Nova white1.png"
+                alt="NOVA logo"
+                className="w-full h-full object-cover"
+              />
             </div>
+
 
             {/* Course Image */}
             <img

@@ -18,16 +18,16 @@ const OurServices = () => {
 
   return (
     <section className="py-12 bg-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2c6e32] mb-12">
           Our Services
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col items-center text-center transition transform hover:scale-105 cursor-pointer"
+              className="bg-white rounded-2xl shadow-lg p-5 sm:p-6 flex flex-col items-center text-center transition transform hover:scale-105 hover:shadow-2xl duration-300 cursor-pointer"
             >
               <img
                 src={service.image}
