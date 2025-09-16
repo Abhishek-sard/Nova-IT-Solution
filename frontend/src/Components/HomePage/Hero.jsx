@@ -22,10 +22,22 @@ const Hero = () => {
                         We help young minds turn ideas into digital realities that shape the future.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 mt-6 md:mt-8 justify-center md:justify-start">
-                        <button className="px-6 py-3 bg-green-700 text-white hover:bg-green-900 rounded-lg font-medium">
-                            Get Started
+                        <button
+                            className="relative px-10 py-3 font-bold text-lg tracking-wide text-white 
+             rounded-full cursor-default pointer-events-none
+             bg-gradient-to-r from-green-500 via-green-600 to-green-700
+             shadow-lg shadow-green-400/40
+             overflow-hidden transition duration-500"
+                        >
+                            <span className="relative z-10">Welcome</span>
+
+                            {/* Animated shine effect */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                   translate-x-[-100%] animate-shine"></span>
                         </button>
-                        <button className="px-6 py-3 border border-green-700 text-green-700 hover:bg-green-700 hover:text-white rounded-lg font-medium">
+
+
+                        <button className="px-6 py-3 border border-green-700 text-green-700 hover:bg-green-700 hover:text-white rounded-full font-medium">
                             Learn More
                         </button>
                     </div>
