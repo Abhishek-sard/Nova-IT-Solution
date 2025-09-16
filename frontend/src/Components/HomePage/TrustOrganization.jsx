@@ -1,11 +1,13 @@
 import React from "react";
-import Hanuman from '../../assets/hanumna.jpg';
-import Royal from '../../assets/royalbrohter.jpg';
-import Club from '../../assets/logo3.jpg';
+import Royal from '../../assets/royalbrother1.jpg';
+import Smallheaven from '../../assets/smallheave.jpg'
+import Gracee from '../../assets/Grace1.png';
+import Club from '../../assets/logo3.jpg'
 
 const TrustOrganization = () => {
   const logos = [
-    { src: Hanuman, alt: "S.D.G Foundation" },
+    { src: Gracee, alt: "Grace English School" },
+    { src: Smallheaven, alt: "Small Heaven" },
     { src: Royal, alt: "S.D.G Foundation" },
     { src: Club, alt: "S.D.G Club" }
   ];

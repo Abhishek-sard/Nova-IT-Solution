@@ -37,9 +37,16 @@ const Hero = () => {
                         </button>
 
 
-                        <button className="px-6 py-3 border border-green-700 text-green-700 hover:bg-green-700 hover:text-white rounded-full font-medium">
+                        <a
+                            href="/Aboutour.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 py-3 border border-green-700 text-green-700 
+             hover:bg-green-700 hover:text-white rounded-full font-medium"
+                        >
                             Learn More
-                        </button>
+                        </a>
+
                     </div>
                 </div>
 

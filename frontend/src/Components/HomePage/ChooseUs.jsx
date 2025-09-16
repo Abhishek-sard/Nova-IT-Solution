@@ -3,12 +3,10 @@ import CooderPerson from '../../assets/cooder.jpg'
 
 const ChooseUs = () => {
     const stats = [
-        { value: "5K+", label: "Students Graduated" },
-        { value: "30+", label: "Industry Mentors" },
-        { value: "3L", label: "Salary Range" },
+        { value: "10+", label: "Industry Mentors" },
         { value: "1:1", label: "Career Support" },
-        { value: "50+", label: "Hiring Partners" },
         { value: "500+", label: "Interview Coding Questions" },
+        { value: "1:1", label: "Feedback & Guidance" }
     ];
 
     return (
