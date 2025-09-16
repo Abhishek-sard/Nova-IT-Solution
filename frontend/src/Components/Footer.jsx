@@ -51,10 +51,10 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex justify-center sm:justify-start gap-4 mt-4">
-            <a href="#" className="hover:text-gray-300"><FaFacebook size={20} /></a>
+            <a href="https://www.facebook.com/profile.php?id=61580412253689" className="hover:text-gray-300"><FaFacebook size={20} /></a>
             <a href="#" className="hover:text-gray-300"><FaTwitter size={20} /></a>
-            <a href="#" className="hover:text-gray-300"><FaInstagram size={20} /></a>
-            <a href="#" className="hover:text-gray-300"><FaLinkedin size={20} /></a>
+            <a href="https://www.instagram.com/novait_solutions/" className="hover:text-gray-300"><FaInstagram size={20} /></a>
+            <a href="https://www.linkedin.com/in/nova-it-solutions-0a00a4385/" className="hover:text-gray-300"><FaLinkedin size={20} /></a>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import CooderPerson from '../../assets/cooderperson1.jpg';
+import CooderPerson from '../../assets/cooderperson2.jpg';
 
 const ChooseUs = () => {
     const stats = [
@@ -21,7 +21,7 @@ const ChooseUs = () => {
 
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     {/* Illustration */}
-                    <div className="md:w-1/4 w-4/4 mx-auto">
+                    <div className="md:w-2/4 w-4/4 mx-auto">
                         <img
                             src={CooderPerson}
                             alt="Stats illustration"
