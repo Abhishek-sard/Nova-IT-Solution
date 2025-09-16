@@ -24,19 +24,22 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled ? "bg-green-900" : "bg-[#2c6e32]"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${scrolled ? "bg-green-900" : "bg-[#2c6e32]"
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 text-white">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img
-            src="/NOVA logo.png"
+            src="/Logo White.png"
             alt="NOVA logo"
             className="h-12 w-auto object-contain"
           />
-          <span className="text-lg font-bold">NOVA</span>
+          <img
+            src="/Nova white1.png"
+            alt="NOVA text logo"
+            className="h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -49,7 +52,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/all-courses" className="hover:text-gray-300">
-                All Courses
+                Our Courses
               </Link>
             </li>
             <li>
@@ -76,7 +79,7 @@ const Navbar = () => {
             to="/works"
             className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
           >
-            Works
+            Gallery
           </Link>
           <Link
             to="/contact"
@@ -105,7 +108,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/all-courses" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
-                All Courses
+                Our Courses
               </Link>
             </li>
             <li>
@@ -130,7 +133,7 @@ const Navbar = () => {
               className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
               onClick={() => setIsOpen(false)}
             >
-              Works
+              Gallery
             </Link>
             <Link
               to="/contact"

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import LOGO from '../../public/NOVA logo.png';
+// import LOGO from '../../public/NOVA logo.png';
+import Navbar from './Navbar';
 
 const Footer = () => {
   return (
@@ -10,8 +11,8 @@ const Footer = () => {
 
         {/* Logo & About */}
         <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-          <Link to="/">
-            <img src={LOGO} alt="Logo" className="w-24 sm:w-28 mb-4 rounded-lg cursor-pointer" />
+          <Link to="#">
+            <img src="/Logo White.png" alt="Logo" className="w-24 sm:w-28 mb-4 rounded-lg cursor-pointer" />
           </Link>
           <p className="text-gray-200 text-sm leading-relaxed max-w-xs">
             We provide top-notch services to help your business grow and succeed
