@@ -1,5 +1,5 @@
 import React from "react";
-import CooderPerson from '../../assets/cooder.jpg'
+import CooderPerson from '../../assets/cooderperson1.jpg';
 
 const ChooseUs = () => {
     const stats = [

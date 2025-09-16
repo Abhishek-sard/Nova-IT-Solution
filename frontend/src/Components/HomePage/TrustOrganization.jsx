@@ -2,7 +2,7 @@ import React from "react";
 import Royal from '../../assets/royalbrother1.jpg';
 import Smallheaven from '../../assets/smallheave.jpg'
 import Gracee from '../../assets/Grace1.png';
-import Club from '../../assets/logo3.jpg'
+import Club from '../../assets/logo3.jpg';
 
 const TrustOrganization = () => {
   const logos = [

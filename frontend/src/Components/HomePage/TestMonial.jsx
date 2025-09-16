@@ -1,27 +1,27 @@
 import React from "react";
-import Person1 from '../../assets/logo3.jpg';
-import Person2 from '../../assets/Choose.jpg';
-import Person3 from '../../assets/cooder.jpg';
+import Person1 from '../../assets/AshishDulal.jpg.png';
+import Person2 from '../../assets/jenishvai.jpg';
+import Person3 from '../../assets/Aashish Thapa.jpg';
 
 const Testimonial = () => {
   const testimonials = [
     {
-      name: "John Doe",
-      role: "CEO, Company A",
+      name: "Ashish Dulal",
+      role: "BOD-Grace International Itahari",
       image: Person1,
-      feedback: "Amazing services! Highly professional team that delivered more than I expected."
+      feedback: "Amazing services! The team was highly professional, attentive, and delivered results beyond my expectations. Truly impressed with their work."
     },
     {
-      name: "Jane Smith",
-      role: "Marketing Head, Company B",
+      name: "Jenish Karki",
+      role: "Student, Web Development",
       image: Person2,
-      feedback: "The team understood our requirements perfectly and the results were outstanding."
+      feedback: "As a student, I really enjoyed working with the team. They explained everything clearly, guided me whenever I got stuck, and helped me learn a lot while completing the project."
     },
     {
-      name: "Michael Johnson",
-      role: "Founder, Startup C",
+      name: "Aashish Thapa",
+      role: "Principle/founder, Small Heaven Academy",
       image: Person3,
-      feedback: "Excellent work with great attention to detail. Would recommend to anyone."
+      feedback: "The team demonstrated exceptional dedication and attention to detail. Their work exceeded our expectations, and I would highly recommend their services to anyone seeking quality results."
     }
   ];
 
@@ -29,7 +29,7 @@ const Testimonial = () => {
     <section className="py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-black mb-12">
-          What Our Clients Say
+          OUR TESTIMONIALS
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
