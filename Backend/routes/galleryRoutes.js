@@ -1,5 +1,5 @@
 import express from 'express';
-import { createGallery, getGallery, updateGallery, deleteGallery } from '../controllers/galleryController';
+import { createGallery, getGallery, updateGallery, deleteGallery } from '../controllers/galleryController.js';
 
 
 const router = express.Router();

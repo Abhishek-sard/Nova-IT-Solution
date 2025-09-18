@@ -1,11 +1,11 @@
-import Gallery from "../models/gallery";
+import Gallery from "../models/Gallery.js";
 
 //create
 export const createGallery = async (req, res) => {
   try {
     const gallery = new Gallery.create(req.body);
     res.json(gallery);
-  } catch (error) {
+  } catch (error) { 
     res.status(500).json({ error: err.message });
   }
 };
