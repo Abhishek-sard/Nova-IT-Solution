@@ -3,13 +3,15 @@ import Royal from '../../assets/royalbrother1.jpg';
 import Smallheaven from '../../assets/smallheave.jpg';
 import Gracee from '../../assets/Grace1.png';
 import Club from '../../assets/logo3.jpg';
+import KailashCloud from '../../assets/kailash cloud.jpg'
 
 const TrustOrganization = () => {
   const logos = [
     { src: Gracee, alt: "Grace English School" },
     { src: Smallheaven, alt: "Small Heaven" },
     { src: Royal, alt: "S.D.G Foundation" },
-    { src: Club, alt: "S.D.G Club" }
+    { src: Club, alt: "S.D.G Club" },
+    { src: KailashCloud, alt: "Kailash Cloud" },
   ];
 
   return (
