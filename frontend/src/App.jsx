@@ -14,7 +14,7 @@ import Background from "./Components/AboutUs/Background";
 import Team from "./Components/AboutUs/Team";
 import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
-
+import Dashboard from "./Components/Dashboard/Dashboard";
 // Home page
 function Home() {
   return (
@@ -74,6 +74,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       <Footer />
     </Router>
