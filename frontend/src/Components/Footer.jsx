@@ -23,7 +23,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
             <li><Link to="/about" className="hover:text-gray-300">About Us</Link></li>
-            <li><Link to="/services" className="hover:text-gray-300">Services</Link></li>
+            <li><Link to="/blogs" className="hover:text-gray-300">Blogs</Link></li>
             <li><Link to="/contact" className="hover:text-gray-300">Contact</Link></li>
           </ul>
         </div>
@@ -45,7 +45,7 @@ const Footer = () => {
           <p className="text-sm">📍 Sunsari, Nepal</p>
           <p className="text-sm">Gudri Line, Inurawa</p>
           <p className="text-sm">📞 +977 9764453517</p>
-          <p className="text-sm">✉️ nova@gmail.com</p>
+          <p className="text-sm">✉️ info.novaitsolutiuon@gmail.com</p>
 
           {/* Social Icons */}
           <div className="flex justify-center sm:justify-start gap-4 mt-4">
