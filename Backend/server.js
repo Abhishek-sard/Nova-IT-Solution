@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import courseRoutes from './routes/courseRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import galleryRoutes from './routes/galleryRoutes.js';
+import organizationRoutes from './routes/organizationRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use('/api/blogs', blogRoutes);
 app.use('/api/courses', blogRoutes);
 app.use('/api/gallery', galleryRoutes);
+app.use('/api/organizations', organizationRoutes);
 
 
 
