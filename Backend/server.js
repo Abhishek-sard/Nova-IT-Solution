@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import courseRoutes from './routes/courseRoutes.js';
+import blogRoutes from './routes/blogRoutes.js';
+import galleryRoutes from './routes/galleryRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -10,8 +12,9 @@ connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-app.use('/api/courses', courseRoutes);
+app.use('/api/blogs', blogRoutes);
+app.use('/api/courses', blogRoutes);
+app.use('/api/gallery', galleryRoutes);
 
 
 const PORT = process.env.PORT || 5000;
