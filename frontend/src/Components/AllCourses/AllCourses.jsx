@@ -1,13 +1,13 @@
 import React from "react";
-import webImg from "../../assets/Web Development.jpg";
-import mlImg from "../../assets/machine learning.jpg";
-import mobileImg from "../../assets/mobiel app.jpg";
-import uiuxImg from "../../assets/UI UX poster.jpg";
-import cyberImg from "../../assets/Cyber Secuity.jpg";
-import devopsImg from "../../assets/Devops.jpg";
+import webImg from "../../assets/Web Development pg.jpg";
+import mlImg from "../../assets/maching learning.jpg";
+import mobileImg from "../../assets/mobileapp.jpg";
+import uiuxImg from "../../assets/ui ux.jpg";
+import cyberImg from "../../assets/cybersecurity.jpg";
+import devopsImg from "../../assets/devoop.jpg";
 import pythonImg from "../../assets/python.jpg";
-import dbImg from "../../assets/Database.jpg";
-import digitalImg from "../../assets/Digital Marketing.jpg";
+import dbImg from "../../assets/databasemanagement.jpg";
+import digitalImg from "../../assets/digital marekting.jpg";
 
 const courses = [
   { id: 1, title: "Web Development", desc: "HTML, CSS, JavaScript & React", price: 12000, discountPrice: 9999, img: webImg },

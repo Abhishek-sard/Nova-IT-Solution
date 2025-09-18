@@ -32,7 +32,7 @@ const OurServices = () => {
               <img
                 src={service.image}
                 alt={service.title}
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain mb-4"
+                className="w-50 h-30 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain mb-4"
               />
               <h3 className="text-lg sm:text-xl font-semibold text-[#2c6e32] mb-2">
                 {service.title}
