@@ -7,5 +7,6 @@ const blogSchema = new mongoose.Schema({
     author: String,
     description: String,
 });
+export default mongoose.model("Blog", blogSchema);
 
-export default mongoose.mongoose.model("Blog", blogSchema);
+
