@@ -15,6 +15,7 @@ import Team from "./Components/AboutUs/Team";
 import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import Images from "./Components/Images/Images";
 // Home page
 function Home() {
   return (
@@ -64,6 +65,15 @@ function ContactPage(){
     </>
   )
 }
+
+//images collection
+function ImagesCollection(){
+  return(
+    <>
+    <Images/>
+    </>
+  )
+}
 function App() {
   return (
     <Router>
@@ -74,6 +84,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage/>}/>
+        <Route path="/images" element={<ImagesCollection/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       <Footer />
