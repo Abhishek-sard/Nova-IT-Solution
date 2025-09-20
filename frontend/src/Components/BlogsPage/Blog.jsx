@@ -5,7 +5,9 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/blogs").then((res) => setBlogs(res.data));
+    axios.get("http://localhost:5000/api/blogs")
+      .then((res) => setBlogs(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -20,12 +22,16 @@ const Blogs = () => {
             key={post._id}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"
           >
-            <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
+            <img
+              src={post.image ? `http://localhost:5000${post.image}` : "/placeholder.png"}
+              alt={post.title}
+              className="w-full h-48 object-cover"
+            />
             <div className="p-6 flex flex-col justify-between h-full">
               <div>
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">{post.title}</h2>
                 <p className="text-sm text-gray-500 mb-4">
-                  {new Date(post.date).toDateString()} | {post.author}
+                  {post.date ? new Date(post.date).toDateString() : ""} | {post.author}
                 </p>
                 <p className="text-gray-700 mb-4">{post.description}</p>
               </div>

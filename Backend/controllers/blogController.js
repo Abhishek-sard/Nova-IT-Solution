@@ -1,16 +1,33 @@
 import Blog from "../models/Blog.js";
+import multer from "multer";
+import path from "path";
 
-// Create
+// Multer setup for image uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+export const upload = multer({ storage });
+
+// Create Blog
 export const createBlog = async (req, res) => {
   try {
-    const blog = await Blog.create(req.body);
-    res.json(blog);
+    const { title, author, description } = req.body;
+    const image = req.file ? `/uploads/${req.file.filename}` : "";
+    const newBlog = new Blog({ title, author, description, image });
+    await newBlog.save();
+    res.status(201).json(newBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// Read
+// Get Blogs
 export const getBlogs = async (req, res) => {
   try {
     const blogs = await Blog.find();
@@ -20,17 +37,25 @@ export const getBlogs = async (req, res) => {
   }
 };
 
-// Update
+// Update Blog
 export const updateBlog = async (req, res) => {
   try {
-    const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(blog);
+    const { title, author, description } = req.body;
+    const image = req.file ? `/uploads/${req.file.filename}` : undefined;
+
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.id,
+      { title, author, description, ...(image && { image }) },
+      { new: true }
+    );
+
+    res.json(updatedBlog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// Delete
+// Delete Blog
 export const deleteBlog = async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);

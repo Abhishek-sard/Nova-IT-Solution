@@ -3,30 +3,52 @@ import axios from "axios";
 
 const BlogDashboard = () => {
   const [blogs, setBlogs] = useState([]);
-  const [form, setForm] = useState({ title: "", image: "", author: "", description: "" });
+  const [form, setForm] = useState({ title: "", author: "", description: "", image: null });
+  const [editingId, setEditingId] = useState(null);
 
   // Fetch Blogs
   useEffect(() => {
     axios.get("http://localhost:5000/api/blogs").then((res) => setBlogs(res.data));
   }, []);
 
-  // Add Blog
-  const addBlog = () => {
-    axios.post("http://localhost:5000/api/blogs", form).then((res) => {
-      setBlogs([...blogs, res.data]);
-      setForm({ title: "", image: "", author: "", description: "" });
-    });
+  // Add or Update Blog
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("author", form.author);
+    formData.append("description", form.description);
+    if (form.image) formData.append("image", form.image);
+
+    if (editingId) {
+      axios
+        .put(`http://localhost:5000/api/blogs/${editingId}`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          setBlogs(blogs.map((b) => (b._id === editingId ? res.data : b)));
+          setEditingId(null);
+          setForm({ title: "", author: "", description: "", image: null });
+        });
+    } else {
+      axios
+        .post("http://localhost:5000/api/blogs", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          setBlogs([...blogs, res.data]);
+          setForm({ title: "", author: "", description: "", image: null });
+        });
+    }
   };
 
-  // Update Blog
-  const updateBlog = (id) => {
-    axios.put(`http://localhost:5000/api/blogs/${id}`, form).then((res) => {
-      setBlogs(blogs.map((b) => (b._id === id ? res.data : b)));
-    });
+  // Edit Blog
+  const handleEdit = (blog) => {
+    setForm({ title: blog.title, author: blog.author, description: blog.description, image: null });
+    setEditingId(blog._id);
   };
 
   // Delete Blog
-  const deleteBlog = (id) => {
+  const handleDelete = (id) => {
     axios.delete(`http://localhost:5000/api/blogs/${id}`).then(() => {
       setBlogs(blogs.filter((b) => b._id !== id));
     });
@@ -34,20 +56,15 @@ const BlogDashboard = () => {
 
   return (
     <div className="p-6">
-      {/* Blog Form */}
-      <div className="p-4 bg-gray-100 rounded mb-6">
+      <h2 className="text-2xl font-bold mb-4">Manage Blogs</h2>
+
+      {/* Form */}
+      <div className="bg-gray-100 p-4 rounded mb-6">
         <input
           type="text"
           placeholder="Title"
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
-          className="border p-2 m-1"
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={form.image}
-          onChange={(e) => setForm({ ...form, image: e.target.value })}
           className="border p-2 m-1"
         />
         <input
@@ -63,22 +80,27 @@ const BlogDashboard = () => {
           onChange={(e) => setForm({ ...form, description: e.target.value })}
           className="border p-2 m-1 w-full"
         />
-        <button onClick={addBlog} className="bg-green-500 text-white px-4 py-2 rounded mt-2">
-          Add Blog
+        <input
+          type="file"
+          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+          className="border p-2 m-1"
+        />
+        <button onClick={handleSubmit} className="bg-green-600 text-white px-4 py-2 rounded mt-2">
+          {editingId ? "Update" : "Add"} Blog
         </button>
       </div>
 
       {/* Blog List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {blogs.map((blog) => (
-          <div key={blog._id} className="bg-white shadow p-4 rounded">
-            <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover rounded" />
-            <h3 className="text-lg font-semibold mt-2">{blog.title}</h3>
+          <div key={blog._id} className="bg-white p-4 rounded shadow">
+            <img src={`http://localhost:5000${blog.image}`} alt={blog.title} className="w-full h-40 object-cover rounded" />
+            <h3 className="font-bold mt-2">{blog.title}</h3>
             <p className="text-sm text-gray-500">By {blog.author} | {new Date(blog.date).toDateString()}</p>
             <p className="text-gray-600 mt-2">{blog.description}</p>
-            <div className="flex gap-2 mt-3">
-              <button onClick={() => updateBlog(blog._id)} className="px-3 py-1 bg-blue-500 text-white rounded">Update</button>
-              <button onClick={() => deleteBlog(blog._id)} className="px-3 py-1 bg-red-500 text-white rounded">Delete</button>
+            <div className="flex gap-2 mt-2">
+              <button onClick={() => handleEdit(blog)} className="bg-blue-500 text-white px-3 py-1 rounded">Edit</button>
+              <button onClick={() => handleDelete(blog._id)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
             </div>
           </div>
         ))}
