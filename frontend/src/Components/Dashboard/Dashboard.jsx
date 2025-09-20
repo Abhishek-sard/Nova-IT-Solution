@@ -1,5 +1,5 @@
 import React from "react";
-import TrustedOrganizations from "./TrustOrganizations";
+
 import Courses from "./Courses";
 import Blog from "./Blog";
 import Gallery from "./Gallery";
@@ -10,12 +10,6 @@ const Dashboard = () => {
       <h1 className="text-3xl font-bold text-center text-indigo-600 mb-8">
         Admin Dashboard
       </h1>
-
-      {/* Trusted Organizations */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold mb-4">Trusted Organizations</h2>
-        <TrustedOrganizations />
-      </section>
 
       {/* Courses */}
       <section className="mb-10">
