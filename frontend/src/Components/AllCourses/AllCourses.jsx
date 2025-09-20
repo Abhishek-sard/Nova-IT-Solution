@@ -1,27 +1,18 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import React from "react";
-import webImg from "../../assets/Web Development pg.jpg";
-import mlImg from "../../assets/maching learning.jpg";
-import mobileImg from "../../assets/mobileapp.jpg";
-import uiuxImg from "../../assets/ui ux.jpg";
-import cyberImg from "../../assets/cybersecurity.jpg";
-import devopsImg from "../../assets/devoop.jpg";
-import pythonImg from "../../assets/python.jpg";
-import dbImg from "../../assets/databasemanagement.jpg";
-import digitalImg from "../../assets/digital marekting.jpg";
 
-const courses = [
-  { id: 1, title: "Web Development", desc: "HTML, CSS, JavaScript & React", price: 12000, discountPrice: 9999, img: webImg },
-  { id: 2, title: "Machine Learning", desc: "Neural Networks, TensorFlow", price: 15000, discountPrice: 11999, img: mlImg },
-  { id: 3, title: "Mobile App Dev", desc: "Flutter & React Native basics", price: 10000, discountPrice: 7999, img: mobileImg },
-  { id: 4, title: "UI/UX Design", desc: "Figma, Prototyping, Wireframes", price: 9000, discountPrice: 6999, img: uiuxImg },
-  { id: 5, title: "Cyber Security", desc: "Ethical Hacking, Pentesting", price: 16000, discountPrice: 12999, img: cyberImg },
-  { id: 6, title: "DevOps", desc: "Docker, Kubernetes, CI/CD", price: 14000, discountPrice: 10999, img: devopsImg },
-  { id: 7, title: "AI with Python", desc: "Deep Learning, NLP, CV", price: 18000, discountPrice: 14999, img: pythonImg },
-  { id: 8, title: "Database Management", desc: "SQL, NoSQL & MongoDB", price: 11000, discountPrice: 8499, img: dbImg },
-  { id: 9, title: "Digital Marketing", desc: "SEO, SEM, Analytics", price: 9500, discountPrice: 6999, img: digitalImg },
-];
+
+
 
 function AllCourses() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/courses")
+      .then(res => setCourses(res.data))
+      .catch(err => console.log(err));
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100 p-10">
       <h1 className="text-3xl font-bold text-center mb-10 text-gray-800">
@@ -35,29 +26,17 @@ function AllCourses() {
             key={course.id}
             className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center hover:shadow-lg transition"
           >
-            {/* Small Logo */}
-            <div className="w-10 h-10 rounded-full bg-green-800 flex items-center justify-center mb-3 overflow-hidden">
-              <img
-                src="/Nova white1.png"
-                alt="NOVA logo"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <img src={course.image} alt={course.title} className="w-full h-40 object-cover rounded-lg mb-4" />
 
 
-            {/* Course Image */}
-            <img
-              src={course.img}
-              alt={course.title}
-              className="w-full h-40 object-cover rounded-lg mb-4"
-            />
+
 
             {/* Text */}
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               {course.title}
             </h3>
             <p className="text-sm text-gray-600 text-center mb-4">
-              {course.desc}
+              {course.description}
             </p>
 
             {/* Price Section */}
