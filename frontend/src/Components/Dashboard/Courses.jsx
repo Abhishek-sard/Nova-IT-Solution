@@ -3,7 +3,7 @@ import axios from "axios";
 
 const DashboardCourses = () => {
   const [courses, setCourses] = useState([]);
-  const [form, setForm] = useState({ title: "", description: "", price: "", image: "" });
+  const [form, setForm] = useState({ title: "", description: "", price: "", image: null });
   const [editingId, setEditingId] = useState(null);
 
   // Fetch all courses
@@ -13,32 +13,48 @@ const DashboardCourses = () => {
       .catch(err => console.error(err));
   }, []);
 
-  // Add or Update
+  // ✅ Handle add or update
   const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("description", form.description);
+    formData.append("price", form.price);
+    if (form.image) formData.append("image", form.image); // key must match upload.single("image")
+
     if (editingId) {
-      axios.put(`http://localhost:5000/api/courses/${editingId}`, form).then(res => {
+      axios.put(`http://localhost:5000/api/courses/${editingId}`, formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      }).then(res => {
         setCourses(courses.map(c => (c._id === editingId ? res.data : c)));
         setEditingId(null);
-        setForm({ title: "", description: "", price: "", image: "" });
-      });
+        setForm({ title: "", description: "", price: "", image: null });
+      }).catch(err => console.error(err));
     } else {
-      axios.post("http://localhost:5000/api/courses", form).then(res => {
+      axios.post("http://localhost:5000/api/courses", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      }).then(res => {
         setCourses([...courses, res.data]);
-        setForm({ title: "", description: "", price: "", image: "" });
-      });
+        setForm({ title: "", description: "", price: "", image: null });
+      }).catch(err => console.error(err));
     }
   };
 
   // Delete
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/courses/${id}`).then(() => {
-      setCourses(courses.filter(c => c._id !== id));
-    });
+    axios.delete(`http://localhost:5000/api/courses/${id}`)
+      .then(() => {
+        setCourses(courses.filter(c => c._id !== id));
+      }).catch(err => console.error(err));
   };
 
   // Edit (load data into form)
   const handleEdit = (course) => {
-    setForm(course);
+    setForm({
+      title: course.title,
+      description: course.description,
+      price: course.price,
+      image: null // reset image; user must re-upload if changing
+    });
     setEditingId(course._id);
   };
 
@@ -70,10 +86,8 @@ const DashboardCourses = () => {
           className="border p-2 m-1"
         />
         <input
-          type="text"
-          placeholder="Image URL"
-          value={form.image}
-          onChange={(e) => setForm({ ...form, image: e.target.value })}
+          type="file"
+          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
           className="border p-2 m-1"
         />
         <button
@@ -88,15 +102,25 @@ const DashboardCourses = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {courses.map((course) => (
           <div key={course._id} className="bg-white p-4 rounded shadow">
-            <img src={course.image} alt={course.title} className="w-full h-32 object-cover rounded" />
+            <img
+              src={`http://localhost:5000${course.image}`}
+              alt={course.title}
+              className="w-full h-32 object-cover rounded"
+            />
             <h3 className="font-bold">{course.title}</h3>
             <p>{course.description}</p>
             <p className="text-indigo-600 font-semibold">Rs. {course.price}</p>
             <div className="flex gap-2 mt-2">
-              <button onClick={() => handleEdit(course)} className="bg-blue-500 text-white px-3 py-1 rounded">
+              <button
+                onClick={() => handleEdit(course)}
+                className="bg-blue-500 text-white px-3 py-1 rounded"
+              >
                 Edit
               </button>
-              <button onClick={() => handleDelete(course._id)} className="bg-red-500 text-white px-3 py-1 rounded">
+              <button
+                onClick={() => handleDelete(course._id)}
+                className="bg-red-500 text-white px-3 py-1 rounded"
+              >
                 Delete
               </button>
             </div>

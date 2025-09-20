@@ -1,46 +1,65 @@
 import Course from "../models/Course.js";
+import multer from "multer";
+import path from "path";
 
-//create
+// Multer setup
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // make sure this folder exists
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)); // unique filename
+  },
+});
+
+export const upload = multer({ storage });
+
+// Create course
 export const createCourse = async (req, res) => {
   try {
-    const newCourse = new Course(req.body);
+    const { title, description, price } = req.body;
+    const image = req.file ? `/uploads/${req.file.filename}` : "";
+
+    const newCourse = new Course({ title, description, price, image });
     await newCourse.save();
     res.status(201).json(newCourse);
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
-//Read
+// Update course
+export const updateCourse = async (req, res) => {
+  try {
+    const { title, description, price } = req.body;
+    const image = req.file ? `/uploads/${req.file.filename}` : undefined;
+
+    const updatedCourse = await Course.findByIdAndUpdate(
+      req.params.id,
+      { title, description, price, ...(image && { image }) },
+      { new: true }
+    );
+    res.json(updatedCourse);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Read and Delete stay the same
 export const getCourses = async (req, res) => {
   try {
     const courses = await Course.find();
     res.json(courses);
   } catch (error) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
-//Update
-export const updateCourse = async (req, res) => {
-  try {
-    const course = await Course.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      res.body,
-      { new: true }
-    );
-  } catch (error) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-//Delete
 export const deleteCourse = async (req, res) => {
   try {
     await Course.findByIdAndDelete(req.params.id);
     res.json({ message: "Deleted successfully" });
   } catch (error) {
-    res.status(500).json({error: err.message});
+    res.status(500).json({ error: error.message });
   }
 };

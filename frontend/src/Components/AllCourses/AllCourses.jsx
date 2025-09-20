@@ -23,15 +23,15 @@ function AllCourses() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {courses.map((course) => (
           <div
-            key={course.id}
+            key={course._id}
             className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center hover:shadow-lg transition"
           >
-            <img src={course.image} alt={course.title} className="w-full h-40 object-cover rounded-lg mb-4" />
+            <img
+            
+              src={course.image ? `http://localhost:5000${course.image}` : "/placeholder.png"}
+              alt={course.title}
+            />
 
-
-
-
-            {/* Text */}
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               {course.title}
             </h3>
@@ -39,18 +39,16 @@ function AllCourses() {
               {course.description}
             </p>
 
-            {/* Price Section */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-gray-500 line-through">Rs. {course.price}</span>
-              <span className="text-green-700 font-bold">Rs. {course.discountPrice}</span>
+              <span className="text-green-700 font-bold">Rs. {course.price}</span>
             </div>
 
-            {/* Contact Button */}
             <button className="w-full px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition">
               Contact
             </button>
           </div>
         ))}
+
       </div>
     </div>
   );

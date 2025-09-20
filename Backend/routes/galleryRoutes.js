@@ -1,6 +1,6 @@
 import express from 'express';
 import { createGallery, getGallery, updateGallery, deleteGallery } from '../controllers/galleryController.js';
-import upload from '../middleware/upload.js';
+
 
 
 const router = express.Router();
