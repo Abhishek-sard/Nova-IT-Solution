@@ -76,7 +76,7 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Link
-            to="/images"
+            to="/gallery"
             className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
           >
             Gallery
@@ -129,7 +129,7 @@ const Navbar = () => {
           </ul>
           <div className="flex flex-col gap-2 mt-4">
             <Link
-              to="/images"
+              to="/gallery"
               className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
               onClick={() => setIsOpen(false)}
             >

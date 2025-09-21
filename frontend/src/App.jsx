@@ -15,6 +15,7 @@ import Team from "./Components/AboutUs/Team";
 import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import ImageCollection from "./Components/ImagePage/ImageCollection";
 
 // Home page
 function Home() {
@@ -48,24 +49,20 @@ function AboutUs() {
 
 // Blog page
 function BlogsPage() {
-  return (
-    <>
-    <Blog/>
-    </>
-  )
+  return <Blog />;
 }
 
+// Contact page
+function ContactPage() {
+  return <WhatsAppForm />;
+}
 
-//Contact page
-function ContactPage(){
+//Gallery page
+function ImagePage(){
   return(
-    <>
-    <WhatsAppForm/>
-    
-    </>
+    <ImageCollection/>
   )
 }
-
 
 function App() {
   return (
@@ -76,8 +73,9 @@ function App() {
         <Route path="/all-courses" element={<Courses />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
-        <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/gallery" element={<ImagePage />} /> 
       </Routes>
       <Footer />
     </Router>
