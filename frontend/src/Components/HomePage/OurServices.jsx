@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // import useNavigate
 import Service1 from '../../assets/webdevelopment.jpg';
 import Service2 from '../../assets/mobileapp.jpg';
 import Service3 from '../../assets/seo.jpg';
@@ -7,14 +8,20 @@ import Service5 from '../../assets/digitalmarketing.jpg';
 import Service6 from '../../assets/software.jpg';
 
 const OurServices = () => {
+  const navigate = useNavigate(); // initialize navigate
+
   const services = [
     { image: Service1, title: "Web Development", description: "Build modern and responsive websites." },
     { image: Service2, title: "Mobile Apps", description: "Create mobile apps for Android and iOS." },
     { image: Service3, title: "SEO Optimization", description: "Improve your website ranking on search engines." },
     { image: Service4, title: "UI/UX Design", description: "Design user-friendly and attractive interfaces." },
     { image: Service5, title: "Digital Marketing", description: "Promote your business online effectively." },
-    {image: Service6, title: "Software Development", description: "Create custom software solutions for your business."}
+    { image: Service6, title: "Software Development", description: "Create custom software solutions for your business." }
   ];
+
+  const handleLearnMore = () => {
+    navigate("/contact"); // change route to contact page
+  };
 
   return (
     <section className="py-12 bg-gray-100">
@@ -38,7 +45,10 @@ const OurServices = () => {
                 {service.title}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">{service.description}</p>
-              <button className="bg-[#2c6e32] text-white px-5 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-green-600 transition duration-300 w-full sm:w-auto">
+              <button
+                onClick={handleLearnMore} // navigate to contact page
+                className="bg-[#2c6e32] text-white px-5 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-green-600 transition duration-300 w-full sm:w-auto"
+              >
                 Learn More
               </button>
             </div>
