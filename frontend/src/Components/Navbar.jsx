@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -18,18 +18,23 @@ const Navbar = () => {
     );
 
     observer.observe(hero);
-
     return () => observer.disconnect();
   }, []);
 
+  const linkClasses =
+    "hover:text-gray-300 transition-colors duration-200";
+  const activeClasses =
+    "text-gray-300 border-b-2 border-gray-300"; // highlight active
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${scrolled ? "bg-green-900" : "bg-[#2c6e32]"
-        }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 
+      ${scrolled ? "bg-green-900" : "bg-[#2c6e32]"}`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 text-white">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 py-3 text-white">
+        
+        {/* Logo (pushed a little inside) */}
+        <NavLink to="/" className="flex items-center gap-2 ml-2 md:ml-4">
           <img
             src="/Logo White.png"
             alt="NOVA logo"
@@ -40,53 +45,79 @@ const Navbar = () => {
             alt="NOVA text logo"
             className="h-12 w-auto object-contain"
           />
-        </Link>
+        </NavLink>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-1 justify-center">
           <ul className="flex items-center gap-8 text-base font-medium">
             <li>
-              <Link to="/" className="hover:text-gray-300">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/all-courses" className="hover:text-gray-300">
+              <NavLink
+                to="/all-courses"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+              >
                 Our Courses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className="hover:text-gray-300">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+              >
                 About Us
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/blogs" className="hover:text-gray-300">
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+              >
                 Blogs
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-gray-300">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
 
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
+          <NavLink
             to="/gallery"
             className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
           >
             Gallery
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/contact"
             className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800"
           >
             Contact
-          </Link>
+          </NavLink>
         </div>
 
         {/* Mobile Menu Button */}
@@ -102,46 +133,78 @@ const Navbar = () => {
         <div className="md:hidden bg-[#2c6e32] text-white px-6 py-4">
           <ul className="flex flex-col gap-4">
             <li>
-              <Link to="/" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+                onClick={() => setIsOpen(false)}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/all-courses" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              <NavLink
+                to="/all-courses"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+                onClick={() => setIsOpen(false)}
+              >
                 Our Courses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+                onClick={() => setIsOpen(false)}
+              >
                 About Us
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/blogs" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+                onClick={() => setIsOpen(false)}
+              >
                 Blogs
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-gray-300" onClick={() => setIsOpen(false)}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? activeClasses : linkClasses
+                }
+                onClick={() => setIsOpen(false)}
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
+
           <div className="flex flex-col gap-2 mt-4">
-            <Link
+            <NavLink
               to="/gallery"
               className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
               onClick={() => setIsOpen(false)}
             >
               Gallery
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contact"
               className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
               onClick={() => setIsOpen(false)}
             >
               Contact
-            </Link>
+            </NavLink>
           </div>
         </div>
       )}

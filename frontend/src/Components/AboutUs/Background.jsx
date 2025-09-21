@@ -30,14 +30,14 @@ const Background = () => {
         </p>
 
         <p className="text-lg leading-relaxed mb-6">
-          NOVA also embraced **innovation and inclusivity** — offering
+          NOVA also embraced innovation and inclusive — offering
           opportunities to students from different backgrounds, encouraging
           teamwork, and building a strong community of learners and mentors.
         </p>
 
         <p className="text-lg leading-relaxed">
           What makes NOVA different is not just the courses we provide, but the
-          belief that **education should inspire, transform, and empower**. Our
+          belief that education should inspire, transform, and empower .Our
           background is the foundation of this mission, and we continue to grow
           with the same spirit of difference.
         </p>
