@@ -11,15 +11,17 @@ const ImageCollection = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-4 p-4">
-      {images.map(img => (
-        <img
-          key={img._id}
-          src={`http://localhost:5000${img.image}`}
-          alt="Gallery"
-          className="w-72 h-72 object-cover rounded-lg"
-        />
-      ))}
+    <div className="p-10 bg-gray-100 min-h-screen mt-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {images.map(img => (
+          <img
+            key={img._id}
+            src={`http://localhost:5000${img.image}`}
+            alt="Gallery"
+            className="w-full h-64 object-cover rounded-lg"
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -24,23 +24,22 @@ Position: ${formData.position}%0A
 Address: ${formData.address}%0A
 Purpose: ${formData.purpose}`;
 
-    // Detect mobile or desktop
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     const whatsappUrl = isMobile
-      ? `whatsapp://send?phone=${phoneNumber}&text=${message}` // mobile app
-      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`; // desktop web
+      ? `whatsapp://send?phone=${phoneNumber}&text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
     window.open(whatsappUrl, "_blank");
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-10">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-10 px-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-2xl shadow-lg w-80 space-y-4"
+        className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl space-y-4"
       >
-        <h2 className="text-xl font-bold text-center">Submit Details</h2>
+        <h2 className="text-2xl font-bold text-center">Submit Details</h2>
 
         <input
           type="text"
@@ -48,7 +47,7 @@ Purpose: ${formData.purpose}`;
           placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-3 border rounded-lg"
           required
         />
 
@@ -58,17 +57,17 @@ Purpose: ${formData.purpose}`;
           placeholder="Enter your age"
           value={formData.age}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-3 border rounded-lg"
           required
         />
 
         <input
           type="text"
           name="position"
-          placeholder="Enter your Collage/School"
+          placeholder="Enter your College/School"
           value={formData.position}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-3 border rounded-lg"
           required
         />
 
@@ -78,7 +77,7 @@ Purpose: ${formData.purpose}`;
           placeholder="Enter your address"
           value={formData.address}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-3 border rounded-lg"
           required
         />
 
@@ -87,14 +86,14 @@ Purpose: ${formData.purpose}`;
           placeholder="Enter your purpose"
           value={formData.purpose}
           onChange={handleChange}
-          className="w-full p-2 border rounded-lg"
-          rows="3"
+          className="w-full p-3 border rounded-lg"
+          rows="4"
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+          className="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition text-lg"
         >
           Send to WhatsApp
         </button>

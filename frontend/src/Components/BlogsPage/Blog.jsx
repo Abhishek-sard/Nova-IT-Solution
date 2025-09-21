@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
-  const [expandedIds, setExpandedIds] = useState([]); // Track which cards are expanded
+  const [expandedIds, setExpandedIds] = useState([]); 
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/blogs")
