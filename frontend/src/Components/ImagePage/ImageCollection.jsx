@@ -1,16 +1,27 @@
-import React from 'react'
-import Image1 from '../../assets/Aashish Thapa.jpg';
-import Image2 from '../../assets/databasemanagement.jpg';
-import Image3 from '../../assets/Choose.jpg'; 
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const ImageCollection = () => {
-  return (   
-    <div className="flex gap-4 p-4 mt-30">
-      <img src={Image1} alt="Aashish Thapa" className="w-70 h-70 object-cover rounded-lg" />
-      <img src={Image2} alt="Database Management" className="w-70 h-70 object-cover rounded-lg" />
-      <img src={Image3} alt="Third Example" className="w-70 h-70 object-cover rounded-lg" />
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/gallery")
+      .then(res => setImages(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="flex flex-wrap gap-4 p-4">
+      {images.map(img => (
+        <img
+          key={img._id}
+          src={`http://localhost:5000${img.image}`}
+          alt="Gallery"
+          className="w-72 h-72 object-cover rounded-lg"
+        />
+      ))}
     </div>
   );
-}
+};
 
 export default ImageCollection;

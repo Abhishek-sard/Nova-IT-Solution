@@ -1,13 +1,10 @@
-import express from 'express';
-import { createGallery, getGallery, updateGallery, deleteGallery } from '../controllers/galleryController.js';
-
-
+import express from "express";
+import { createGallery, getGallery, deleteGallery, upload } from "../controllers/galleryController.js";
 
 const router = express.Router();
 
-router.post("/", createGallery);
+router.post("/", upload.single("image"), createGallery);
 router.get("/", getGallery);
-router.put("/:id", updateGallery);
 router.delete("/:id", deleteGallery);
 
 export default router;

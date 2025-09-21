@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import AdminActions from "./AdminActions";
 
-const Gallery = () => {
+const GalleryDashboard = () => {
   const [gallery, setGallery] = useState([]);
   const [file, setFile] = useState(null);
 
-  // Fetch all images
   const fetchGallery = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/gallery");
       setGallery(res.data);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -20,30 +18,28 @@ const Gallery = () => {
     fetchGallery();
   }, []);
 
-  // Add image
   const handleAdd = async () => {
     if (!file) return alert("Select an image first!");
     const formData = new FormData();
-    formData.append("image", file);
+    formData.append("image", file); // must match backend
 
     try {
       await axios.post("http://localhost:5000/api/gallery", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setFile(null);
-      fetchGallery();
-    } catch (error) {
-      console.error(error);
+      fetchGallery(); // refresh images
+    } catch (err) {
+      console.error(err);
     }
   };
 
-  // Delete image
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/gallery/${id}`);
       fetchGallery();
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -51,7 +47,6 @@ const Gallery = () => {
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Gallery Dashboard</h1>
 
-      {/* Upload Section */}
       <div className="flex gap-2 mb-6">
         <input type="file" onChange={(e) => setFile(e.target.files[0])} />
         <button
@@ -62,12 +57,11 @@ const Gallery = () => {
         </button>
       </div>
 
-      {/* Gallery Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {gallery.map((img) => (
           <div key={img._id} className="relative">
             <img
-              src={`http://localhost:5000/${img.image}`}
+              src={`http://localhost:5000${img.image}`}
               alt="Gallery"
               className="w-full h-28 object-cover rounded shadow"
             />
@@ -84,4 +78,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default GalleryDashboard;
