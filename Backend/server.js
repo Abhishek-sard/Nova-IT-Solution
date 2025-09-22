@@ -6,6 +6,8 @@ import connectDB from "./config/db.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import galleryRoutes from "./routes/galleryRoutes.js";
+import auth from './routes/auth.js';
+
 
 dotenv.config();
 connectDB();
@@ -22,6 +24,7 @@ app.use("/uploads", express.static(path.join(path.resolve(), "uploads")));
 app.use("/api/courses", courseRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/gallery", galleryRoutes);
+app.use("/api/auth", auth);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Hero from "./Components/HomePage/Hero";
 import Cart from "./Components/HomePage/Cart";
@@ -16,7 +16,7 @@ import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ImageCollection from "./Components/ImagePage/ImageCollection";
-
+import Login from "./LoginPage/Login"
 // Home page
 function Home() {
   return (
@@ -57,14 +57,14 @@ function ContactPage() {
   return <WhatsAppForm />;
 }
 
-//Gallery page
-function ImagePage(){
-  return(
-    <ImageCollection/>
-  )
+// Gallery page
+function ImagePage() {
+  return <ImageCollection />;
 }
 
 function App() {
+  const token = localStorage.getItem("token");
+
   return (
     <Router>
       <Navbar />
@@ -74,8 +74,14 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/gallery" element={<ImagePage />} /> 
+        <Route path="/gallery" element={<ImagePage />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Protected Route for Dashboard */}
+        <Route
+          path="/dashboard"
+          element={token ? <Dashboard /> : <Navigate to="/login" />}
+        />
       </Routes>
       <Footer />
     </Router>
