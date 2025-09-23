@@ -4,7 +4,7 @@ const Background = () => {
   return (
     <div
       className="min-h-screen bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/nova-bg.jpg')" }} // put your image inside public folder with name nova-bg.jpg
+      style={{ backgroundImage: "url('/NOVA Logo.png')" }} // put your image inside public folder with name nova-bg.jpg
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
