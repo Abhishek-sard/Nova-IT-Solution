@@ -44,7 +44,7 @@ const Footer = () => {
         <div className="text-center sm:text-left">
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="text-sm">🗺️ Sunsari, Nepal</p>
-          <p className="text-sm"> 🛣️Gudri Line, Inurawa</p>
+          <p className="text-sm"> 🛣️Gudri Line, Inaruwa</p>
           <p className="text-sm">📞 +977 9764453517</p>
           <p className="text-sm">✉️ info.novaitsolutiuon@gmail.com</p>
 
