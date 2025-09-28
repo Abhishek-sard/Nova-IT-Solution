@@ -16,7 +16,7 @@ import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ImageCollection from "./Components/ImagePage/ImageCollection";
-import Login from "./LoginPage/Login"
+// import Login from "./LoginPage/Login"
 // Home page
 function Home() {
   return (
@@ -63,7 +63,7 @@ function ImagePage() {
 }
 
 function App() {
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
   return (
     <Router>
@@ -75,13 +75,10 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<ImagePage />} />
-        <Route path="/login" element={<Login />} />
-        
+        {/* <Route path="/login" element={<Login />} />
+         */}
         {/* Protected Route for Dashboard */}
-        <Route
-          path="/dashboard"
-          element={token ? <Dashboard /> : <Navigate to="/login" />}
-        />
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
       <Footer />
     </Router>
