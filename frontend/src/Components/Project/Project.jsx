@@ -1,20 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import CCNA from '../../assets/ccna.jpg'
 
 const Project = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "CCNA Care Agency",
       category: "Web Development",
-      description: "A full-featured e-commerce solution with advanced inventory management, payment processing, and customer analytics.",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      description: "A responsive website for a healthcare agency offering CCNA training and certification courses.",
+      image: { CCNA },
+      technologies: ["React", "Node.js", "MongoDB", "Express JS"],
       results: {
         revenue: "+45%",
         conversion: "+32%",
         loadTime: "-60%"
       },
-      link: "#"
+      link: "https://ccnacare.com.au/",
+      featured: true
     },
     {
       id: 2,
@@ -28,7 +31,8 @@ const Project = () => {
         rating: "4.8/5",
         engagement: "+65%"
       },
-      link: "#"
+      link: "#",
+      featured: false
     },
     {
       id: 3,
@@ -42,7 +46,8 @@ const Project = () => {
         decisions: "3x faster",
         insights: "+150%"
       },
-      link: "#"
+      link: "#",
+      featured: true
     },
     {
       id: 4,
@@ -56,173 +61,117 @@ const Project = () => {
         engagement: "+85%",
         growth: "2.5x"
       },
-      link: "#"
+      link: "#",
+      featured: false
     }
   ];
 
-  const caseStudy = {
-    title: "Enterprise SaaS Platform Transformation",
-    challenge: "Our client needed a scalable SaaS solution to manage their growing customer base and streamline internal operations. Their existing system was outdated, slow, and couldn't handle increasing user load.",
-    solution: "We designed and built a modern cloud-based platform with microservices architecture, real-time data processing, and an intuitive user interface.",
-    technologies: ["React.js", "Node.js", "MongoDB", "AWS", "Docker", "Jest"],
-    stats: [
-      { value: "68%", label: "Faster Processing" },
-      { value: "42%", label: "Cost Reduction" },
-      { value: "3.5x", label: "User Growth" },
-      { value: "99.9%", label: "Uptime" }
-    ],
-    testimonial: {
-      text: "The team delivered beyond our expectations. The new platform has transformed how we do business and has been instrumental in our recent growth.",
-      author: "Sarah Johnson",
-      position: "CTO at Enterprise Corp"
-    }
-  };
+  const featuredProjects = projects.filter(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <div className="project-showcase">
+    <div className="bg-gray-50 min-h-screen py-16 px-5 md:px-10 lg:px-20">
       {/* Hero Section */}
-      <section className="project-hero">
-        <div className="project-hero-content">
-          <h1 className="project-hero-title">Our Projects</h1>
-          <p className="project-hero-subtitle">
-            Discover how we've helped businesses transform their digital presence 
-            with innovative solutions and cutting-edge technology.
-          </p>
-        </div>
-      </section>
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Our Projects
+        </h1>
+        <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+          Discover how we've helped businesses transform their digital presence 
+          with innovative solutions and cutting-edge technology.
+        </p>
+      </div>
 
-      {/* Projects Grid */}
-      <section className="projects-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Featured Projects</h2>
-            <p>Explore our recent work across various industries and technologies</p>
-          </div>
-
-          <div className="projects-grid">
-            {projects.map(project => (
-              <div key={project.id} className="project-card">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} />
-                  <div className="project-overlay">
-                    <button className="view-details-btn">View Details</button>
-                  </div>
-                </div>
-                
-                <div className="project-content">
-                  <span className="project-category">{project.category}</span>
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  
-                  <div className="project-technologies">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                  
-                  <div className="project-results">
-                    {Object.entries(project.results).map(([key, value]) => (
-                      <div key={key} className="result-item">
-                        <span className="result-value">{value}</span>
-                        <span className="result-label">{key}</span>
-                      </div>
-                    ))}
-                  </div>
+      {/* Featured Projects */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Projects</h2>
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="relative">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-64 object-cover" 
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity">
+                  <Link to={project.link} className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 font-semibold">
+                    View Details
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Case Study Section */}
-      <section className="case-study-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Project Case Study</h2>
-            <p>An in-depth look at how we delivered exceptional results</p>
-          </div>
+              <div className="p-6 flex flex-col">
+                <span className="text-sm text-green-600 font-medium mb-2">{project.category}</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-700 text-sm mb-4">{project.description}</p>
 
-          <div className="case-study">
-            <div className="case-study-header">
-              <h3>{caseStudy.title}</h3>
-            </div>
-            
-            <div className="case-study-content">
-              <div className="case-study-text">
-                <div className="case-study-block">
-                  <h4>The Challenge</h4>
-                  <p>{caseStudy.challenge}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                
-                <div className="case-study-block">
-                  <h4>Our Solution</h4>
-                  <p>{caseStudy.solution}</p>
-                </div>
-                
-                <div className="technologies-used">
-                  <h4>Technologies Used</h4>
-                  <div className="tech-stack">
-                    {caseStudy.technologies.map(tech => (
-                      <span key={tech} className="tech-badge">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="case-study-stats">
-                <h4>Results Delivered</h4>
-                <div className="stats-grid">
-                  {caseStudy.stats.map((stat, index) => (
-                    <div key={index} className="stat-card">
-                      <div className="stat-value">{stat.value}</div>
-                      <div className="stat-label">{stat.label}</div>
+
+                <div className="flex flex-wrap gap-4 mt-auto">
+                  {Object.entries(project.results).map(([key, value]) => (
+                    <div key={key} className="text-sm">
+                      <span className="font-semibold text-gray-900">{value}</span> <span className="text-gray-500">{key}</span>
                     </div>
                   ))}
                 </div>
-                
-                <div className="testimonial">
-                  <div className="testimonial-content">
-                    <p>"{caseStudy.testimonial.text}"</p>
-                    <div className="testimonial-author">
-                      <strong>{caseStudy.testimonial.author}</strong>
-                      <span>{caseStudy.testimonial.position}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* All Other Projects */}
+      <div>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">All Projects</h2>
+        <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {otherProjects.map((project) => (
+            <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+              <div className="relative">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-64 object-cover" 
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity">
+                  <Link to={project.link} className="bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700 font-semibold">
+                    View Details
+                  </Link>
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col">
+                <span className="text-sm text-green-600 font-medium mb-2">{project.category}</span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                <p className="text-gray-700 text-sm mb-4">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="text-xs bg-gray-200 text-gray-800 px-2 py-1 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-4 mt-auto">
+                  {Object.entries(project.results).map(([key, value]) => (
+                    <div key={key} className="text-sm">
+                      <span className="font-semibold text-gray-900">{value}</span> <span className="text-gray-500">{key}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Process Timeline */}
-      <section className="process-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Our Development Process</h2>
-            <p>We follow a structured approach to ensure project success</p>
-          </div>
-
-          <div className="process-timeline">
-            {[
-              { phase: "Discovery & Planning", description: "We analyze requirements, define scope, and create detailed project plans." },
-              { phase: "Design & Prototyping", description: "Our designers create wireframes and prototypes to visualize the final product." },
-              { phase: "Development", description: "We build solutions using agile methodology with regular updates and iterations." },
-              { phase: "Testing & QA", description: "Thorough testing ensures quality standards and correct functionality." },
-              { phase: "Deployment & Support", description: "We deploy solutions and provide ongoing support and optimization." }
-            ].map((step, index) => (
-              <div key={index} className="process-step">
-                <div className="step-number">0{index + 1}</div>
-                <div className="step-content">
-                  <h4>{step.phase}</h4>
-                  <p>{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
