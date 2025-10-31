@@ -16,6 +16,7 @@ import Blog from "./Components/BlogsPage/Blog";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ImageCollection from "./Components/ImagePage/ImageCollection";
+import Project from "./Components/Project/Project";
 // import Login from "./LoginPage/Login"
 // Home page
 function Home() {
@@ -62,6 +63,11 @@ function ImagePage() {
   return <ImageCollection />;
 }
 
+// Project Page
+function ProjectPage(){
+  return <Project />;
+}
+
 function App() {
   // const token = localStorage.getItem("token");
 
@@ -75,6 +81,8 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<ImagePage />} />
+        <Route path="/project" element={<ProjectPage />} />
+
         {/* <Route path="/login" element={<Login />} />
          */}
         {/* Protected Route for Dashboard */}
