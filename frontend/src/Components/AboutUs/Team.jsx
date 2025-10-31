@@ -2,22 +2,24 @@ import React from "react";
 import TeamMember1 from "../../assets/Team1.jpg";
 import TeamMember2 from "../../assets/Team2.jpg";
 import TeamMember3 from "../../assets/Team3.jpg";
-import TeamMember4 from "../../assets/Team4.jpg";
 import TeamMember5 from '../../assets/me1.jpg';
+import TeamMember6 from '../../assets/uncle.jpg';
+import TeamMember7 from '../../assets/sapath.jpg';
 
 // Team data
 const teamMembers = [
   {
-    id: 1,
-    name: "Aayush Sapkota",
-    position: "Founder & CEO",
-    img: TeamMember2, 
+    id: 6,
+    name: "Ram Chandra Sapkota",
+    position: "Founder",
+    img:TeamMember6,
+
   },
   {
-    id: 2,
-    name: "Sagun Subedi",
-    position: "Managing Director",
-    img: TeamMember4,
+    id: 1,
+    name: "Aayush Sapkota",
+    position: "CEO",
+    img: TeamMember2, 
   },
   {
     id: 3,
@@ -37,6 +39,12 @@ const teamMembers = [
     position: "Backend Developer",
     img: TeamMember3, 
   },
+  {
+    id: 7,
+    name: "Sapath Dahal",
+    position: "Graphic Designer",
+    img: TeamMember7,
+  }
 ];
 
 const Team = () => {
@@ -63,7 +71,7 @@ const Team = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-green-800/90 via-green-700/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             {/* Content */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-white px-4">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center text-green-500 px-4">
               <h3 className="text-xl font-bold drop-shadow-md">
                 {member.name}
               </h3>

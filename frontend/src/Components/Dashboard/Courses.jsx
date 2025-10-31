@@ -78,13 +78,23 @@ const DashboardCourses = () => {
           onChange={(e) => setForm({ ...form, description: e.target.value })}
           className="border p-2 m-1"
         />
-        <input
+        {/* <input
           type="number"
           placeholder="Price"
           value={form.price}
           onChange={(e) => setForm({ ...form, price: e.target.value })}
           className="border p-2 m-1"
-        />
+        /> */}
+        <input type="text"
+        placeholder="Price"
+        value={form.price}
+        onChange={(e) => {
+          const value = e.target.value.replace(/,/g, " ");
+          if(!isNaN(value)){
+            const formatted = Number(value).toLocaleString();
+            setForm({...form, price: formatted});
+          }
+        }} className="border p-2 m-1"/>
         <input
           type="file"
           onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
