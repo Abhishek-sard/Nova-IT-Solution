@@ -6,8 +6,8 @@ import Person3 from "../../assets/Aashish Thapa.jpg";
 const Testimonial = () => {
   const testimonials = [
     {
-      name: "Ashish Dulal",
-      role: "BOD - Grace International Itahari",
+      name: "Suresh Bhandhari",
+      role: "CEO, Ramro Soft",
       image: Person1,
       feedback:
         "Amazing services! The team was highly professional, attentive, and delivered results beyond my expectations. Truly impressed with their work.",

@@ -93,7 +93,7 @@ const Navbar = () => {
             to="/contact"
             className="px-3 lg:px-4 py-1.5 lg:py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-sm lg:text-base"
           >
-            Contact
+            Project
           </NavLink>
         </div>
 
@@ -159,7 +159,7 @@ const Navbar = () => {
               className="px-4 py-2 bg-[#2c6e32] border border-white rounded-md hover:bg-green-800 text-center"
               onClick={() => setIsOpen(false)}
             >
-              Contact
+              Project
             </NavLink>
           </div>
         </div>

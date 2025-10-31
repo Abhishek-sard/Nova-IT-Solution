@@ -1,14 +1,12 @@
 import React from "react";
 import Royal from '../../assets/royalbrother1.jpg';
 import Smallheaven from '../../assets/smallheave.jpg';
-import Gracee from '../../assets/Grace1.png';
 import KailashCloud from '../../assets/kailash cloud.jpg';
 import Pugyo from "../../assets/pugyo.jpg";
 import RamroSoft from "../../assets/ramrosoft.jpg";
 
 const TrustOrganization = () => {
   const logos = [
-    { src: Gracee, alt: "Grace English School" },
     { src: Smallheaven, alt: "Small Heaven" },
     { src: Royal, alt: "S.D.G Foundation" },
     { src: KailashCloud, alt: "Kailash Cloud" },
