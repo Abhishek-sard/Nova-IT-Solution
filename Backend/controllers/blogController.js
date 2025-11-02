@@ -27,11 +27,22 @@ export const createBlog = async (req, res) => {
   }
 };
 
-// Get Blogs
+// Get All Blogs
 export const getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find();
+    const blogs = await Blog.find().sort({ date: -1 }); // latest blogs first
     res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Get Single Blog by ID
+export const getBlogById = async (req, res) => {
+  try {
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) return res.status(404).json({ message: "Blog not found" });
+    res.json(blog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

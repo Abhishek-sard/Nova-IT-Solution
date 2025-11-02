@@ -13,6 +13,7 @@ import Story from "./Components/AboutUs/Story";
 import Background from "./Components/AboutUs/Background";
 import Team from "./Components/AboutUs/Team";
 import Blog from "./Components/BlogsPage/Blog";
+import BlogDetail from "./Components/BlogsPage/BlogDetails";
 import WhatsAppForm from "./Components/ContactPage/WhatAppForm";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ImageCollection from "./Components/ImagePage/ImageCollection";
@@ -79,6 +80,7 @@ function App() {
         <Route path="/all-courses" element={<Courses />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/blogs/:id" element={<BlogDetail />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<ImagePage />} />
         <Route path="/project" element={<ProjectPage />} />

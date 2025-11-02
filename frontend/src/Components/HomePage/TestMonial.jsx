@@ -6,7 +6,7 @@ import Person3 from "../../assets/Aashish Thapa.jpg";
 const Testimonial = () => {
   const testimonials = [
     {
-      name: "Suresh Sharma",
+      name: "Pritam atal",
       role: "Shree hanuman bastralaya",
       image: Person1,
       feedback:
