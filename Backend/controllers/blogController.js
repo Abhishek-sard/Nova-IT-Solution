@@ -4,12 +4,8 @@ import path from "path";
 
 // Multer setup for image uploads
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
+  destination: (req, file, cb) => cb(null, "uploads/"),
+  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
 });
 
 export const upload = multer({ storage });
@@ -27,22 +23,11 @@ export const createBlog = async (req, res) => {
   }
 };
 
-// Get All Blogs
+// Get all blogs
 export const getBlogs = async (req, res) => {
   try {
-    const blogs = await Blog.find().sort({ date: -1 }); // latest blogs first
+    const blogs = await Blog.find();
     res.json(blogs);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-// Get Single Blog by ID
-export const getBlogById = async (req, res) => {
-  try {
-    const blog = await Blog.findById(req.params.id);
-    if (!blog) return res.status(404).json({ message: "Blog not found" });
-    res.json(blog);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

@@ -1,21 +1,15 @@
 import express from "express";
-import mongoose from "mongoose";
-import Blog from "../models/Blog.js";
+import mongoose from "mongoose"; // needed for ObjectId validation
+import Blog from "../models/Blog.js"; // ✅ important
 import { createBlog, getBlogs, updateBlog, deleteBlog, upload } from "../controllers/blogController.js";
 
 const router = express.Router();
 
-// Create blog
-router.post("/", upload.single("image"), createBlog);
-
-// Get all blogs
-router.get("/", getBlogs);
-
-// Get single blog
+// Get single blog safely
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
-  // Check if id is valid
+  // Validate MongoDB ObjectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid blog ID" });
   }
@@ -26,15 +20,9 @@ router.get("/:id", async (req, res) => {
 
     res.json(blog);
   } catch (error) {
-    console.error(error);
+    console.error(error); // 🔹 check your terminal logs
     res.status(500).json({ message: "Server error" });
   }
 });
-
-// Update blog
-router.put("/:id", upload.single("image"), updateBlog);
-
-// Delete blog
-router.delete("/:id", deleteBlog);
 
 export default router;
