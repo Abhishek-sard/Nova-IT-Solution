@@ -1,13 +1,13 @@
 import React from "react";
-import Person1 from "../../assets/AshishDulal.jpg.png";
+import Person1 from "../../assets/hanuman.jpg";
 import Person2 from "../../assets/jenishvai.jpg";
 import Person3 from "../../assets/Aashish Thapa.jpg";
 
 const Testimonial = () => {
   const testimonials = [
     {
-      name: "Suresh Bhandhari",
-      role: "CEO, Ramro Soft",
+      name: "Suresh Sharma",
+      role: "Shree hanuman bastralaya",
       image: Person1,
       feedback:
         "Amazing services! The team was highly professional, attentive, and delivered results beyond my expectations. Truly impressed with their work.",
