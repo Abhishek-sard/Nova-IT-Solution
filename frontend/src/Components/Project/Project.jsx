@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CCNA from '../../assets/ccna.jpg'
+import CCNA from '../../assets/ccna.jpg';
+import OZConnection from '../../assets/ozconn.jpg';
+import Ramdhhuni from '../../assets/ramdhuni.jpg.jpg';
+import Gyme from '../../assets/gyme.jpg';
 
 const Project = () => {
   const projects = [
     {
       id: 1,
       title: "CCNA Care Agency",
-      category: "Web Development",
+      category: "WebSite",
       description: "A responsive website for a healthcare agency offering CCNA training and certification courses.",
-      image: { CCNA },
+      image: CCNA,
       technologies: ["React", "Node.js", "MongoDB", "Express JS"],
       results: {
         revenue: "+45%",
@@ -21,47 +24,47 @@ const Project = () => {
     },
     {
       id: 2,
-      title: "Health & Fitness Tracker",
-      category: "Mobile App",
-      description: "A comprehensive fitness application with workout plans, nutrition tracking, and progress analytics.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["React Native", "Firebase", "Redux"],
+      title: "Government Project - Ramdhuni -1 website",
+      category: "WebSite",
+      description: "A comprehensive website for the Government of Ramdhuni, providing information and services to citizens.",
+      image: Ramdhhuni,
+      technologies: ["MERN Stack"],
       results: {
-        downloads: "50K+",
+        downloads: "progressing",
         rating: "4.8/5",
         engagement: "+65%"
       },
-      link: "#",
+      link: "https://ramdhhuni.com/",
       featured: false
     },
     {
       id: 3,
-      title: "Business Analytics Dashboard",
+      title: "consultancy",
       category: "Web Application",
       description: "A real-time business intelligence dashboard with interactive charts, reports, and data visualization.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["Vue.js", "D3.js", "Python", "AWS"],
+      image: OZConnection,
+      technologies: ["MERN Stack"],
       results: {
         efficiency: "+68%",
         decisions: "3x faster",
         insights: "+150%"
       },
-      link: "#",
+      link: "https://ccnacare.com.au/",
       featured: true
     },
     {
       id: 4,
-      title: "Social Media Management Tool",
+      title: "AB Fitness Gym ",
       category: "SaaS Platform",
-      description: "An all-in-one social media management platform with scheduling, analytics, and content creation tools.",
-      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      technologies: ["Angular", "Express", "PostgreSQL", "Redis"],
+      description: "An all-in-one social media management platform with scheduling, booking, payment, analytics, and content creation tools.",
+      image: Gyme,
+      technologies: ["MERN Stack"],
       results: {
         timeSaved: "15hrs/week",
         engagement: "+85%",
         growth: "2.5x"
       },
-      link: "#",
+      link: "https://gym-mern.vercel.app/",
       featured: false
     }
   ];
@@ -84,7 +87,7 @@ const Project = () => {
 
       {/* Featured Projects */}
       <div className="mb-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Completed Projects</h2>
         <div className="grid gap-10 grid-cols-1 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
@@ -129,7 +132,7 @@ const Project = () => {
 
       {/* All Other Projects */}
       <div>
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">All Projects</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Building Projects</h2>
         <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {otherProjects.map((project) => (
             <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">

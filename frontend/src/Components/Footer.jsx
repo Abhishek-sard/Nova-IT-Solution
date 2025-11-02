@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import ContactPage from './ContactPage/WhatAppForm'
+
 
 const Footer = () => {
   return (
@@ -22,11 +22,12 @@ const Footer = () => {
         <div className="text-center sm:text-left">
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link to="./ContactPage/WhatAppForm.jsx" className="hover:text-gray-300">Home</Link></li>
-            <li><Link to="./ContactPage/WhatAppForm.jsx" className="hover:text-gray-300">About Us</Link></li>
-            <li><Link to="./ContactPage/WhatAppForm.jsx" className="hover:text-gray-300">Blogs</Link></li>
-            <li><Link to="./ContactPage/WhatAppForm.jsx" className="hover:text-gray-300">Contact</Link></li>
+            <li><Link to="/" className="hover:text-gray-300">Home</Link></li>
+            <li><Link to="/about" className="hover:text-gray-300">About Us</Link></li>
+            <li><Link to="/blog" className="hover:text-gray-300">Blogs</Link></li>
+            <li><Link to="/contact" className="hover:text-gray-300">Contact</Link></li>
           </ul>
+
         </div>
 
         {/* Services */}
